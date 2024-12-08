@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC | Demo Art Website</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header>
+        <div class="container">
+            <h1>ABC</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li>
+                        <select id="language-selector">
+                            <option value="en">EN</option>
+                            <option value="th">TH</option>
+                            <option value="zh">ZH</option>
+                        </select>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home">
+        <div class="hero">
+            <img src="artist-photo.jpg" alt="Artist Photo">
+            <div class="hero-text">
+                <h2>Welcome to ABC</h2>
+                <p>"Art is the journey of a free soul." - Artist</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Gallery Section -->
+    <section id="recent-gallery">
+        <h2>Recent Paintings</h2>
+        <div class="gallery-overview">
+            <div class="gallery-item" onclick="openModal('Painting 1', 'This is a description', '$200')">
+                <img src="painting1.jpg" alt="Painting 1">
+                <p>Painting 1</p>
+            </div>
+            <div class="gallery-item" onclick="openModal('Painting 2', 'This is a description', '$300')">
+                <img src="painting2.jpg" alt="Painting 2">
+                <p>Painting 2</p>
+            </div>
+            <!-- Add more gallery items -->
+        </div>
+        <button onclick="window.location.href='#gallery'">View All</button>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-container">
+            <img src="artist-photo.jpg" alt="Artist Photo">
+            <div class="about-text">
+                <h3>Artist Name</h3>
+                <p>Here you can share the artist's description, history, background, and awards.</p>
+                <div class="contacts">
+                    <p><b>Contact:</b></p>
+                    <p>Facebook: ArtistFB</p>
+                    <p>Instagram: @ArtistIG</p>
+                    <p>Line: ArtistLine</p>
+                    <p>Tel: +123456789</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Page -->
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery-controls">
+            <label for="filter">Show: </label>
+            <select id="filter" onchange="filterGallery()">
+                <option value="available">Available</option>
+                <option value="archived">Archived</option>
+            </select>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item" data-status="available" onclick="openModal('Painting 1', 'Description 1', '$200')">
+                <img src="painting1.jpg" alt="Painting 1">
+                <p>Painting 1</p>
+            </div>
+            <div class="gallery-item" data-status="archived" onclick="openModal('Painting 2', 'Description 2', '$300')">
+                <img src="painting2.jpg" alt="Painting 2">
+                <p>Painting 2 (Sold)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Image Viewer -->
+    <div id="image-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modal-image" src="" alt="Painting">
+            <div id="modal-text">
+                <h3 id="modal-title"></h3>
+                <p id="modal-description"></p>
+                <p id="modal-price"></p>
+                <button onclick="window.location.href='#about'">Contact</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
